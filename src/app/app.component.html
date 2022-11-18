@@ -1,0 +1,122 @@
+
+ 
+  <app-header  ></app-header>
+  <router-outlet></router-outlet>
+   <button id="scroll__top"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg></button>
+
+
+  <!-- Start footer section -->
+    <footer class="footer__section footer__bg" [hidden]="router.url.includes('/login') || router.url.includes('/product') ">
+        <div class="container">
+      
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__bottom--inenr d-flex justify-content-between align-items-center">
+                    <div class="footer__logo">
+                        <a class="footer__logo--link" href="index.html"><img src="assets/assetsParts/img/logo/nav-log-light.png" alt="logo-img"></a>
+                    </div>
+                    <p class="copyright__content"> Desarrollado por <a class="copyright__content--link" target="_blank" href="https://www.buckapi.us">Buckapi.us </a> <span class="text__secondary"> © 2022</span>  Derehos reservados.</p>
+                    <div class="footer__payment">
+                        <img src="assets/assetsParts/img/icon/payment-img.png" alt="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer section -->
+
+
+
+<!-- Quickview Wrapper -->
+    <div class="modal fade" id="modal1" data-animation="slideInUp">
+        <div class="modal-dialog quickview__main--wrapper">
+           <header class="modal-header quickview__header">
+               
+            </header>
+            <div class="quickview__inner">
+                <div class="row row-cols-lg-2 row-cols-md-2">
+                    <div class="col-xs'12">
+                        <div class="quickview__gallery">
+                            <div class="  ">
+                            <swiper [config]="config">
+                              <div class="swiper-wrapper">
+                                <img class="swiper-slide" *ngFor="let image of _butler.preview.images, let i = index " [src]="image" />
+                              </div>
+                              <div class="swiper-pagination"></div>
+                         <!--      <div class="swiper-button-next"></div>
+                              <div class="swiper-button-prev"></div> -->
+                            </swiper>   </div>
+                       
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="quickview__info">
+                            <form action="index.html#">
+                                <h2 class="product__details--info__title mb-10">{{_butler.preview.name}}</h2>
+                                <div class="product__card--price mb-10">Precio: $
+                                    <span class="current__price"> {{_butler.preview.price}}</span>
+                                    <!-- <span class="old__price"> $362.00</span> -->
+                                </div>
+                         
+                                <div class="quickview__variant--list quantity d-flex align-items-center mb-10">
+                                        <div class="quantity__box">
+                                            <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value"  (click)="minus()">-</button>
+                                            <label>
+                                                <input type="number" class="quantity__number quickview__value--number" [(ngModel)]="quantity"   [ngModelOptions]="{standalone: true}"/>
+                                            </label>
+                                            <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value" (click)="plus()">+</button>
+                                        </div>
+                                        <button type="button" class="primary__btn quickview__cart--btn "  (click)="addToBag(quantity)"   data-dismiss="modal">Agregar al carro</button> 
+                                       <!--   <button class="close-modal quickview__close--btn" aria-label="close modal" data-close>✕ </button>  -->
+                                    </div>
+                                <p class="product__details--info__desc mb-10">{{_butler.preview.description}}</p>
+                                <div class="product__variant">
+                              
+                                </div>
+                             
+                            </form>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Quickview Wrapper End -->
+
+     <!-- Start News letter popup -->
+     <div class="newsletter__popup" data-animation="slideInUp">
+        <div id="boxes" class="newsletter__popup--inner">
+            <button class="newsletter__popup--close__btn" aria-label="search close button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512"><path fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M368 368L144 144M368 144L144 368"></path></svg>
+            </button>
+            <div class="box newsletter__popup--box d-flex align-items-center">
+                <div class="newsletter__popup--thumbnail">
+                    <img class="newsletter__popup--thumbnail__img display-block" src="assets/assetsParts/img/banner/newsletter-popup-thumb2.png" alt="newsletter-popup-thumb">
+                </div>
+                <div class="newsletter__popup--box__right">
+                    <h2 class="newsletter__popup--title">Join Our Newsletter</h2>
+                    <div class="newsletter__popup--content">
+                        <label class="newsletter__popup--content--desc">Enter your email address to subscribe our notification of our new post &amp; features by email.</label>
+                        <div class="newsletter__popup--subscribe" id="frm_subscribe">
+                            <form class="newsletter__popup--subscribe__form">
+                                <input class="newsletter__popup--subscribe__input" type="text" placeholder="Enter you email address here...">
+                                <button class="newsletter__popup--subscribe__btn">Subscribe</button>
+                            </form>
+                            <div class="newsletter__popup--footer">
+                                <input type="checkbox" id="newsletter__dont--show">
+                                <label class="newsletter__popup--dontshow__again--text" for="newsletter__dont--show">Don't show this popup again</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End News letter popup -->
+
+    <!-- Scroll top bar -->
+    <button id="scroll__top"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg></button>
+        
