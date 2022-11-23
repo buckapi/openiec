@@ -30,6 +30,10 @@ export class CartComponent implements OnInit {
     this.calculate();
   }
   public calculate(){
+    if (this._butler.numProd==0){
+        this._butler.subTotal=0;
+        this.router.navigate(['']);
+    }
     let subTotalFLAG=this._butler.subTotal
     subTotalFLAG=0;
     let indice = this._butler.car.length;

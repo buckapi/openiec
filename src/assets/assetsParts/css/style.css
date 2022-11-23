@@ -13040,3 +13040,21 @@ details>summary::-webkit-details-marker {
         font-size:1.6rem
     }
 }
+
+.whatsapp {
+  position:fixed;
+  width:45px;
+  height:45px;
+  bottom: 5px;
+    right: 17px;
+  background-color:#25d366;
+  color:#fff;
+  border-radius:50%;
+  text-align:center;
+  font-size:45px;
+  z-index:100;
+}
+
+.whatsapp-icon {
+  margin-top:15px;
+}

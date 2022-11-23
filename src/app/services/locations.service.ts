@@ -1,20 +1,24 @@
-import {Location} from './interfaces/location';
-
+import {Location} from '@interfaces/location';
 export const LOCATIONS: Location[] = [
   {
-    name: 'valle',
+    prov: 'Pichincha',
     cities:[
-      'cali',
-      'jamundi'
+      {"name":"Quito", "tax":3},
+      {"name":"Cayambe", "tax":2}
+    ]
+  },
+  {
+    prov: 'Imbabura',
+    cities:[
+      {"name":"Ibarra", "tax":8},
+      {"name":"Otavalo", "tax":5}
     ]
   },
 {
-    name: 'santander',
+    prov: 'Guayas',
     cities:[
-      'cucuta',
-      'pamplona'
+      {"name":"Guayaquil", "tax":5},
+      {"name":"Milagro", "tax":9}
     ]
-  }
-  
-  
+  } 
 ];

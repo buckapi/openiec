@@ -28,6 +28,7 @@ const routes: Routes = [
 { path: 'account', loadChildren: () => import('./components/pages/account/account.module').then(m => m.AccountModule) },
 { path: 'succes', loadChildren: () => import('./components/pages/succes/succes.module').then(m => m.SuccesModule) },
 { path: 'terms', loadChildren: () => import('./components/pages/terms/terms.module').then(m => m.TermsModule) },
+{ path: 'shops', loadChildren: () => import('./components/pages/shops/shops.module').then(m => m.ShopsModule) },
  { path:'**',pathMatch:'full',redirectTo:'home'}
 ];
 

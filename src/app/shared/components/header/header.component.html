@@ -96,7 +96,7 @@
                                     <a class="header__menu--link"  [routerLink]="['about']">Openimport  </a>  
                                 </li>
                                   <li class="header__menu--items">
-                                    <a class="header__menu--link" [routerLink]="['shop']">Tienda  </a>  
+                                    <a class="header__menu--link" [routerLink]="['shops']">Tienda  </a>  
                                 </li>
                                   <li class="header__menu--items">
                                     <a class="header__menu--link" >Academia  </a>  
@@ -423,11 +423,16 @@
                             </div>
                             <div class="minicart__text--footer d-flex align-items-center">
                                 <div class="quantity__box minicart__quantity">
-                                    <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
+                                     <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value" (click)="minus(index)">-</button>
+                                                        <label>
+                                                            <input type="number" class="quantity__number quickview__value--number" value="{{product.quantity}}" data-counter />
+                                                        </label>
+                                                        <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value" (click)="plus(index)">+</button>
+                                   <!--  <button type="button" class="quantity__value decrease" aria-label="quantity value" value="Decrease Value">-</button>
                                     <label>
                                         <input type="number" class="quantity__number" value="{{product.quantity}}" data-counter />
                                     </label>
-                                    <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
+                                    <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button> -->
                                 </div>
                                 <button class="minicart__product--remove" type="button" (click)="remove(index)">Remover</button>
                             </div>
@@ -461,7 +466,7 @@
             </div>
             <div class="minicart__conditions text-center"[hidden]="_butler.numProd<1" >
                 <input class="minicart__conditions--input" id="accept" type="checkbox" (click)="check()">
-                <label class="minicart__conditions--label" for="accept">Acepto los <a class="minicart__conditions--link" > Terminos y condiciones</a></label>
+                <label class="minicart__conditions--label" for="accept">Acepto los <a class="minicart__conditions--link" [routerLink]="['terms']" > Terminos y condiciones</a></label>
             </div>
             <div class="minicart__button d-flex justify-content-center" >
                 <a class="primary__btn minicart__button--link close--btn" aria-label="minicart close btn" data-offcanvas [hidden]="_butler.numProd<1 || checked" style="background: #d7989a;">Ver carrito</a>

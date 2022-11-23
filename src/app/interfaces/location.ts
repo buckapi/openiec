@@ -1,4 +1,8 @@
 export interface Location {
-  dep: string;
-  cities:string[]; 
+  prov: string;
+  cities:city[]; 
+}
+export interface city {
+  name: string;
+  tax:number; 
 }
