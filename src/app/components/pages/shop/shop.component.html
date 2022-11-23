@@ -231,7 +231,7 @@
                                                     </div>
                                                     <div class="product__card--content">
                                           
-                                                        <h3 class="product__card--title"><a >{{product.name}} </a></h3>
+                                                        <h3 class="product__card--title"><a >{{product.name | lowercase | capitalizeFirst }} </a></h3>
                                                         <div class="product__card--price">
                                                             <span class="old__price">$ </span> 
                                                             <span class="current__price">  {{product.price}}</span>

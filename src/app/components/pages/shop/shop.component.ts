@@ -11,6 +11,7 @@ import {CATEGORIES} from '@app/services/categories.service';
 import { SwiperOptions } from 'swiper';
 import { DealInterface } from '@app/interfaces/deal';
     import { ChangeDetectorRef } from '@angular/core';
+    import { CapitalizeFirstPipe } from '@pipes/capitalizefirst.pipe';
     //import * as $ from 'jquery';
    declare var $: any;
 @Component({
