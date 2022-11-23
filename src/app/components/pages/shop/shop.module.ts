@@ -7,7 +7,7 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { CapitalizeFirstPipe } from '@pipes/capitalizefirst.pipe';
 @NgModule({
   declarations: [
-  CapitalizeFirstPipe,
+CapitalizeFirstPipe,
     ShopComponent
   ],
   imports: [
