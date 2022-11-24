@@ -120,6 +120,10 @@
     <!-- Scroll top bar -->
     <button id="scroll__top"><svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg></button>
 
-    <a href="https://wa.me/+593969065978?text=Hola!!%20Quiero%20comprar%20en%20OpenImport" class="whatsapp" target="_blank" title="Atención personalizada" style="color: white;"> 
-         <i class="fa fa-whatsapp"></i></a>
+    <a href="https://wa.me/+593969065978?text=Hola!!%20Quiero%20comprar%20en%20OpenImport" class="whatsapp" target="_blank" title="Atención personalizada" style="color: white;" [hidden]="_butler.deviceType=='Celular'"> 
+         <i class="fa fa-whatsapp"></i>
+     </a>   
+    <a href="https://wa.me/+593969065978?text=Hola!!%20Quiero%20comprar%20en%20OpenImport" class="whatsappMobile" target="_blank" title="Atención personalizada" style="color: white;" [hidden]="_butler.deviceType!='Celular'"> 
+         <i class="fa fa-whatsapp"></i>
+     </a>
         

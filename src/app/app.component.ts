@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ScriptService } from '@app/services/script.service';
 import { ScriptStore } from '@app/services/script.store';
 import { SwiperOptions } from 'swiper';
+import { DeviceDetectorService } from 'ngx-device-detector'
 //import { DOCUMENT } from '@angular/common'; 
 import * as $ from 'jquery';
 @Component({
@@ -13,7 +14,7 @@ import * as $ from 'jquery';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+ deviceInfo:any=null
 @ViewChild('modal1')  modal1: ElementRef ;
   config: SwiperOptions = {
     pagination: { el: '.swiper-pagination', clickable: true },
@@ -48,7 +49,8 @@ public preview :any={
     public bikersScript:BikersService,
     public _butler:Butler,
     public router:Router,
-   private elementRef: ElementRef
+   private elementRef: ElementRef,
+    private deviceService: DeviceDetectorService
   ){
     document.getElementById('modal1');
      this.script.load(     
@@ -108,8 +110,18 @@ this._butler.hidden=true;
 
 
     }
-
+   epicFunction() {
+      this.deviceInfo = this.deviceService.getDeviceInfo();
+      const isMobile = this.deviceService.isMobile();
+      const isTablet = this.deviceService.isTablet();
+      const isDesktopDevice = this.deviceService.isDesktop();
+     if(isMobile){this._butler.deviceType="Celular"};
+     if(isTablet){this._butler.deviceType="Tablet"};
+     if(isDesktopDevice){this._butler.deviceType="Escritorio"};
+     // console.log(this.deviceInfo.deviceType);
+    }
   ngOnInit(): void {
+     this.epicFunction();
     // this.bikersScript.getUserLocation();
     
   }
