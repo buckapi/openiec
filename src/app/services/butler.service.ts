@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Butler {
     car:any[]=[];
+
     ticket:any[]=[];
     currency:number=1;
     init:number=1;

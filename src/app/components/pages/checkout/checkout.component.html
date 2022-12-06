@@ -1,12 +1,13 @@
-
+    
 <div class="checkout__page--area section--padding">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-6">
+            <div class="col-lg-7 col-md-6" [hidden]="showMethod">
                 <div class="main checkout__mian">
-                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()" >
                         <div class="checkout__content--step section__contact--information">
                             <div class="section__header checkout__section--header d-flex align-items-center justify-content-between mb-25">
+                                 <!-- <a class="previous__link--content" [routerLink]="['../cart']">< Volver al carro</a> -->
                                 <h2 class="section__header--title h3">Información de contacto</h2>
                                 <p class="layout__flex--item">
                                     ya tienes una cuenta?
@@ -16,40 +17,29 @@
                             <div class="customer__information">
                                 <div class="checkout__email--phone mb-12">
                                     <label>
-                             <!--            <input class="checkout__input--field border-radius-5" placeholder="Correo electronico"  type="text"> -->
-
-
-                                           <input  class="checkout__input--field border-radius-5"  upperCase  type="text"   
-                                                formControlName="email"
-                                                [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
-                                                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['email'].errors['required']">Campo requerido</div></div>
+                                       <input  class="checkout__input--field border-radius-5"  upperCase  type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['email'].errors['required']">Campo requerido
+                                            </div>
+                                        </div>
                                     </label>
                                 </div>
                                 <div class="checkout__email--phone mb-12">
                                     <label>
-                             <!--            <input class="checkout__input--field border-radius-5" placeholder="Correo electronico"  type="text"> -->
-
-
-                                         <!-- <input type="email" class="form-control floating"> -->
-                                            <input type="password" class="checkout__input--field border-radius-5" id="password" formControlName="password" placeholder="*******" 
-                                            [(ngModel)]="user.password" 
+                                        <input type="password" class="checkout__input--field border-radius-5" id="password" formControlName="password" placeholder="*******"  [(ngModel)]="user.password" 
                                             [ngClass]="{ 'is-invalid': submitted && f['password'].errors}" required>
-                                            <div *ngIf="submitted && f['password'].errors"class="invalid-feedback">
-                                                <div ngClass="f['password'].errors.required">
-                                                La contraseña es requerida.
-                                                </div>
-                                             
+                                        <div *ngIf="submitted && f['password'].errors"class="invalid-feedback">
+                                            <div ngClass="f['password'].errors.required">
+                                            La contraseña es requerida.
                                             </div>
+                                        </div>
                                     </label>
                                 </div>
-
 
                                 <div class="checkout__checkbox">
                                     <input class="checkout__checkbox--input" id="check1" type="checkbox">
                                     <span class="checkout__checkbox--checkmark"></span>
-                                    <label class="checkout__checkbox--label" for="check1">
-                                        Acepto los términos y condiciones</label>
+                                    <label class="checkout__checkbox--label" for="check1">Acepto los términos y condiciones</label>
                                 </div>
                             </div>
                         </div>
@@ -62,19 +52,31 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-20">
                                         <div class="checkout__input--list ">
                                             <label class="checkout__input--label mb-5" for="input1">Nombres <span class="checkout__input--label__star">*</span></label>
-                                            <input class="checkout__input--field border-radius-5" placeholder="Nombres " id="input1"  type="text">
+                                            <input  class="checkout__input--field border-radius-5"  upperCase  type="text" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }">
+                                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['name'].errors['required']">Campo requerido
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-20">
                                         <div class="checkout__input--list">
                                             <label class="checkout__input--label mb-5" for="input2">Apellidos <span class="checkout__input--label__star">*</span></label>
-                                            <input class="checkout__input--field border-radius-5" placeholder="Apellidos" id="input2"  type="text">
+                                           <input  class="checkout__input--field border-radius-5"  upperCase  type="text" formControlName="lastname" [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }">
+                                        <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['lastname'].errors['required']">Campo requerido
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="col-12 mb-20">
                                         <div class="checkout__input--list">
                                             <label class="checkout__input--label mb-5" for="input3">Cédula de ciudadanía <span class="checkout__input--label__star">*</span></label>
-                                            <input class="checkout__input--field border-radius-5" placeholder="Cédula de ciudadanía" id="input3" type="text">
+                                          <input  class="checkout__input--field border-radius-5"  upperCase  type="text" formControlName="identification" [ngClass]="{ 'is-invalid': submitted && f['identification'].errors }">
+                                        <div *ngIf="submitted && f['identification'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['identification'].errors['required']">Campo requerido
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                  
@@ -107,7 +109,7 @@
                                                     Seleccione...  
                                                     </span>
                                                     </option >
-                                                    <option   *ngFor="let city of locations[indexProvincia].cities ;let i = index"  value="{{i}}">{{city.name}}</option>
+                                                    <option   *ngFor="let city of locations[indexProvincia].cities ; let i = index"  value="{{i}}">{{city.name}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -115,18 +117,22 @@
                                     </div>
                                     <div class="col-12 mb-20">
                                         <div class="checkout__input--list">
-                                            <input class="checkout__input--field border-radius-5" placeholder="Apartamento, suite, etc."  type="text">
+                                            <input  class="checkout__input--field border-radius-5"  upperCase  type="text" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f['address'].errors }">
+                                        <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['address'].errors['required']">Campo requerido
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                     <div class="checkout__checkbox">
-                                        <input class="checkout__checkbox--input" id="check1" type="checkbox">
+                                        <input class="checkout__checkbox--input" id="check2" type="checkbox">
                                         <span class="checkout__checkbox--checkmark"></span>
-                                        <label class="checkout__checkbox--label" for="check1">Retirar en oficina transportadora</label>
+                                        <label class="checkout__checkbox--label" for="check2">Retirar en oficina transportadora</label>
                                     </div>
                                     <div class="checkout__checkbox">
-                                        <input class="checkout__checkbox--input" id="check1" type="checkbox">
+                                        <input class="checkout__checkbox--input" id="check3" type="checkbox">
                                         <span class="checkout__checkbox--checkmark"></span>
-                                        <label class="checkout__checkbox--label" for="check1">Enviar a domicilio</label>
+                                        <label class="checkout__checkbox--label" for="check3">Enviar a domicilio</label>
                                     </div>
                                 </div>
                             </div>
@@ -134,16 +140,27 @@
                         </div>
                         <div class="order-notes mb-20">
                             <label class="checkout__input--label mb-5" for="order">Notas </label>
-                           <textarea class="checkout__notes--textarea__field border-radius-5" id="order" placeholder="Notes sobre su orden, por ejemplo detalles o puntos de referencia para el envio" spellcheck="false"></textarea>
+                           <textarea class="checkout__notes--textarea__field border-radius-5" id="order" placeholder="Notes sobre su orden, por ejemplo detalles o puntos de referencia para el envio" spellcheck="false" formControlName="notes" ></textarea>
+
+<!-- <input  class="checkout__input--field border-radius-5"  upperCase  type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"> -->
+                                    <!--     <div *ngIf="submitted && f['notes'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['notes'].errors['required']">Campo requerido
+                                            </div>
+                                        </div> -->
+
+
                         </div>
                         <div class="checkout__content--step__footer d-flex align-items-center">
                         
-                            <a class="previous__link--content" [routerLink]="['../cart']">< Volver al carro</a>
+                           
                         </div>
+                     <!--    <button class="payment__history--link primary__btn" type="submit">Continuar</button> -->
+                        <button _ngcontent-pfm-c79="" type="submit" class="checkout__now--btn primary__btn" disabled [hidden]="seter1 && seter2"  style="background: #d7989a;">Continuar</button>
+                        <button _ngcontent-pfm-c79="" type="submit" class="checkout__now--btn primary__btn" [hidden]="!seter1 || !seter2"  style="cursor: pointer;">Continuar</button>
                     </form>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6">
+            <div class="col-lg-5 col-md-6" [hidden]="!showMethod">
                 <aside class="checkout__sidebar sidebar border-radius-10">
                     <h2 class="checkout__order--summary__title text-center mb-15">Resúmen de orden</h2>
                     <div class="cart__table checkout__product--table">
