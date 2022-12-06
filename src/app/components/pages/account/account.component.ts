@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Butler } from '@services/butler.service';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+
+    public _butler:Butler
+    ) { }
 
   ngOnInit(): void {
   }

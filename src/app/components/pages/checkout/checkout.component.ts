@@ -42,6 +42,7 @@ public message = '';
  public card:any={};
  public citySelected:any=[];
  public indexProvincia:any=999; 
+ public nameProvSelected:any="";
  provSelected:any=false;
  cityObjSelected:any=false;
   constructor(
@@ -60,6 +61,7 @@ public message = '';
     return this.form.controls;
   }
   public setProv(index:any){
+  this.nameProvSelected=this.locations[index].prov;
   this.provSelected=true;
   this.seter1=true;
   let size = this.locations[index].cities.length;
@@ -80,25 +82,19 @@ public message = '';
     this.card.address=this.form.value.address;
     this.card.identification=this.form.value.identification;
     this.card.notes=this.form.value.notes;
-    this.card.province=this.provSelected;
-    this.card.city=this.citySelected;
+    this.card.province=this.nameProvSelected;
+    this.card.city=this.citySelected.name;
     this.register();
   }
 
   public register(){  
- //  this.toastSvc.success(this.mensaje, 'Usuaio registrado');
-   // this.ticket.status="completed";   
     this.AuthRESTService
         .registerUser( 
           this.user.email, 
           this.user.password 
-        //  this.user.password, 
-        //  this.user.status, 
-        //  this.user.userType
           )
         .subscribe(
           user => {    
-        //  this._uw.card=user;
           this.AuthRESTService.setUser(user);
           const token = user.id;
          this.card.userd='p'+token;
@@ -107,7 +103,6 @@ public message = '';
           this.dataApiService.saveCard(this.card).subscribe(card =>{
             this.toastSvc.success("Registro exitoso!");
             this.showMethod=true;
-             // this.router.navigate(['']);
           });
           }, 
           error => {
@@ -118,23 +113,13 @@ public message = '';
               }
           }
         );
-/*
-     this.dataApiService.saveTicket(this.ticket)
-   .subscribe((res:any) => {
-     this._butler.ticket=[];
-       this.ticket=null;
-       this.setSerialT();
-       this.router.navigate(['/labceltransactions']);
-     });*/  
-
-     //console.log(JSON.stringify(this.options));
 }
   public setCity(i:any){
     this.seter2=true;
-  this.cityObjSelected=true;
-  this.citySelected=this.locations[this.indexProvincia].cities[i];
-  this.fee=this.locations[this.indexProvincia].cities[i].tax;
-}
+    this.cityObjSelected=true;
+    this.citySelected=this.locations[this.indexProvincia].cities[i];
+    this.fee=this.locations[this.indexProvincia].cities[i].tax;
+  }
   ngOnInit(): void {
       this.form = this.formBuilder.group(
       {        

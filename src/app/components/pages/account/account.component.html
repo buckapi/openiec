@@ -4,14 +4,14 @@
         <!-- my account section start -->
         <section class="my__account--section section--padding">
             <div class="container">
-                <p class="account__welcome--text">Hola, Bienvenido a su cuenta de usuario!</p>
+                <p class="account__welcome--text">Hola, {{_butler.userd}} Bienvenido(a) a su cuenta de usuario!</p>
                 <div class="my__account--section__inner border-radius-10 d-flex">
                     <div class="account__left--sidebar">
                         <h2 class="account__content--title mb-20">Mi cuenta</h2>
                         <ul class="account__menu">
                             <li class="account__menu--list active"><a href="#">Ordenes de compra</a></li>
-                            <li class="account__menu--list"><a href="#">Dirección</a></li>
-                            <li class="account__menu--list"><a href="#">Inicio sesion</a></li>
+                       <!--      <li class="account__menu--list"><a href="#">Dirección</a></li>
+                            <li class="account__menu--list"><a href="#">Inicio sesion</a></li> -->
                         </ul>
                     </div>
                     <div class="account__wrapper">
@@ -25,7 +25,7 @@
                                             <th class="account__table--header__child--items">Fecha</th>
                                             <th class="account__table--header__child--items">Metodo de pago</th>
                                             <th class="account__table--header__child--items">Status</th>
-                                            <th class="account__table--header__child--items">Total</th>	 	 	 	
+                                            <th class="account__table--header__child--items">Monto</th>	 	 	 	
                                         </tr>
                                     </thead>
                                     <tbody class="account__table--body mobile__none">
