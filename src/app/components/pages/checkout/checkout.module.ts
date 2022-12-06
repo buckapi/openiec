@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 import { CheckoutRoutingModule } from './checkout-routing.module';
 import { CheckoutComponent } from './checkout.component';
@@ -12,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
  FormsModule,
+ NgxUiLoaderModule,
     CommonModule,
     CheckoutRoutingModule,
     ReactiveFormsModule

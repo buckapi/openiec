@@ -6,6 +6,7 @@ import { AuthRESTService } from '@services/authREST.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { DataApiService } from '@app/services/data-api.service'; 
+import{NgxUiLoaderService} from 'ngx-ui-loader';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -50,7 +51,7 @@ public message = '';
     public _butler:Butler,
     private formBuilder: FormBuilder,
     public dataApiService: DataApiService,
-
+private ngxService: NgxUiLoaderService,
 
     private readonly toastSvc: ToastrService,
     public AuthRESTService:AuthRESTService
@@ -84,10 +85,12 @@ public message = '';
     this.card.notes=this.form.value.notes;
     this.card.province=this.nameProvSelected;
     this.card.city=this.citySelected.name;
+
     this.register();
   }
 
   public register(){  
+         this.ngxService.start("loader-01");
     this.AuthRESTService
         .registerUser( 
           this.user.email, 
@@ -100,8 +103,10 @@ public message = '';
          this.card.userd='p'+token;
          this._butler.userd=this.card.userd;  
           this.AuthRESTService.setToken(token);
+          
           this.dataApiService.saveCard(this.card).subscribe(card =>{
             this.toastSvc.success("Registro exitoso!");
+                  this.ngxService.stop("loader-01");
             this.showMethod=true;
           });
           }, 
