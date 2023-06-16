@@ -3,7 +3,7 @@ import {ApolloModule, APOLLO_NAMED_OPTIONS,NamedOptions} from 'apollo-angular';
 import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
 
-const uri = 'https://db.buckapi.us:4000'; // <-- add the URL of the GraphQL server here
+const uri = 'https://db.openimportec.com:4004/'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({uri}),
@@ -26,13 +26,13 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
           default: /* <-- this settings will be saved as default client */ {
             cache: new InMemoryCache(),
             link: httpLink.create({
-              uri: 'https://db.buckapi.us:4001',
+             // uri: 'https://db.buckapi.us:4001',
             }),
           },
           openimport: /* <-- these settings will be saved by name: newClientName */ {
             cache: new InMemoryCache(),
             link: httpLink.create({
-              uri: 'https://db.buckapi.us:4004',
+              uri: 'https://db.openimportec.com:4004/',
             }),
           },
         };
